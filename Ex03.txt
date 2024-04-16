@@ -1,0 +1,52 @@
+int vermelho = 8;
+int amarelo = 9;
+int verde = 10;
+bool EstadoVerm = false;
+bool EstadoAma = false;
+bool EstadoVer = false;
+String entrada;
+
+void setup()
+{
+  pinMode(vermelho, OUTPUT);
+  pinMode(amarelo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  if(Serial.available()>0)
+  {
+    entrada = Serial.readString();
+    if((entrada == "r" || entrada == "R") && EstadoVerm == false){
+      Serial.println("Led Vermelho ON");
+      digitalWrite(vermelho, HIGH);
+      EstadoVerm = true;
+    }
+    else if((entrada == "r" || entrada == "R") && EstadoVerm == true){
+      Serial.println("Led Vermelho OFF");
+      digitalWrite(vermelho, LOW);
+      EstadoVerm = false;
+    }
+    if((entrada == "y" || entrada == "Y") && EstadoAma == false){
+      Serial.println("Led Amarelo ON");
+      digitalWrite(amarelo, HIGH);
+      EstadoAma = true;
+    }
+    else if((entrada == "y" || entrada == "Y") && EstadoAma == true){
+      Serial.println("Led Amarelo OFF");
+      digitalWrite(amarelo, LOW);
+      EstadoAma = false;
+    }
+    if((entrada == "g" || entrada == "G") && EstadoVer == false){
+      Serial.println("Led Verde ON");
+      digitalWrite(verde, HIGH);
+      EstadoVer = true;
+    }
+    else if((entrada == "g" || entrada == "G") && EstadoVer == true){
+      Serial.println("Led Verde OFF");
+      digitalWrite(verde, LOW);
+      EstadoVer = false;
+    }
+  }
+}

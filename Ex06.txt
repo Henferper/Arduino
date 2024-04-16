@@ -1,0 +1,14 @@
+int pot = A0;
+int entrada = 0;
+
+void setup()
+{
+ pinMode(pot, INPUT);
+ Serial.begin(9600);
+}
+
+void loop()
+{
+ 	entrada = analogRead(pot);
+  	Serial.println(entrada);
+}

@@ -1,0 +1,18 @@
+int temp = A0;
+int valor = 0;
+int celsius = 0;
+
+void setup()
+{
+  pinMode(temp, INPUT); 
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  valor = analogRead(temp);
+
+  celsius = map(((valor - 20) * 3.04), 0, 1023, -40, 125);
+
+    Serial.println(celsius);
+}

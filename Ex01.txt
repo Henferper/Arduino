@@ -1,0 +1,17 @@
+int LED_BUILTIN = 13;
+
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  Serial.begin(9600);
+  digitalWrite(LED_BUILTIN, HIGH);
+  Serial.println("1");
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+  Serial.println("0");
+}

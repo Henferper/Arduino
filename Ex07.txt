@@ -1,0 +1,19 @@
+int pot = A0;
+int led = 9;
+
+void setup()
+{
+  pinMode(pot, INPUT);
+  pinMode(led, OUTPUT); 
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int entrada = analogRead(pot); 
+  int valor = entrada / 4; 
+  
+  Serial.println(valor); 
+  
+  analogWrite(led, valor); 
+}

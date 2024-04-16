@@ -1,0 +1,20 @@
+int botao = 8;
+int estadoBotao = 0; 
+bool apertado = false;
+void setup()
+{
+  pinMode(botao, INPUT);
+  Serial.begin(9600);
+}
+
+void loop(){
+  estadoBotao = digitalRead(botao);
+  if(estadoBotao == 1 && apertado == false){
+    Serial.println("Botao Apertado");
+    apertado = true;
+  }
+  else if(estadoBotao == 0 && apertado == true){
+    Serial.println("Botao Sem acao");
+    apertado = false;
+  }
+}

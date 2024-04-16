@@ -1,0 +1,41 @@
+int botao1 = 6;
+int botao2 = 7;
+int verm = 8;
+int amar = 9;
+int verd = 10;
+int estadoBotao1 = 0;
+int estadoBotao2 = 0;
+
+void setup()
+{
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
+  pinMode(verm, OUTPUT);
+  pinMode(amar, OUTPUT);
+  pinMode(verd, OUTPUT);
+}
+
+void loop()
+{
+  estadoBotao1 = digitalRead(botao1);
+  estadoBotao2 = digitalRead(botao2);
+  
+  // Lógica OR
+  if(estadoBotao1 == HIGH || estadoBotao2 == HIGH){
+    digitalWrite(verm, HIGH); 
+    digitalWrite(amar, LOW);
+    digitalWrite(verd, LOW);
+  }
+  // Lógica AND
+  else if(estadoBotao1 == HIGH && estadoBotao2 == HIGH){
+    digitalWrite(amar, HIGH);
+    digitalWrite(verm, LOW);
+    digitalWrite(verd, LOW);
+  }
+  // Logica XOR
+  else if(botao1 != botao2){
+    digitalWrite(verm, LOW);
+    digitalWrite(amar, LOW);
+    digitalWrite(verd, HIGH);
+  }
+}
